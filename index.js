@@ -73,7 +73,7 @@ function SubmitActorDirector(idmovie)
 {
     var actor_director=document.getElementById("answeractor").value
     
-
+    //url of the movie with all cast (actor) and crew (we just need the director) so we can compare to the input
     apiActor= 'https://api.themoviedb.org/3/movie/'+idmovie+'/credits?api_key=77c9133483df2cf7a1eb322d38433453&language=en-US'
 fetch(apiActor)
 .then(function(msg){
@@ -90,6 +90,7 @@ fetch(apiActor)
         console.log(msg.cast[i].name.toLowerCase())
         //check if the name in the input is the same as the list on the api
         if (msg.cast[i].name.toLowerCase()==actor_director.toLowerCase())
+            //put everything in lowercase so there is no mistake with uppercase i could also pu everything in uppercase
         {
             console.log(actor_director)
             console.log(msg.cast[i].name)
@@ -149,6 +150,7 @@ fetch(apiActor)
 // Get the data of the actor or the director (image+name)
 //Get info Actor
 function GetActorDirectorInfo(id){
+    //call 
     actordirectorulr= 'https://api.themoviedb.org/3/person/'+id+'?api_key=77c9133483df2cf7a1eb322d38433453&language=en-US'
     fetch(actordirectorulr)
     .then(function(msg){
@@ -162,7 +164,7 @@ function GetActorDirectorInfo(id){
     })
     }
 }
-
+//same as movie but with actor info
 function ActorDirector(msg)
 {
     var div3 = document.createElement("div");
@@ -229,6 +231,7 @@ function SubmitMovie(idactor)
     {
         console.log(msg.cast[i].title.toLowerCase())
         if (msg.cast[i].title.toLowerCase()==movie.toLowerCase() )
+        //put everything in lowercase so there is no mistake with uppercase i could also pu everything in uppercase
         {
             listmoviesubmitted.push(movie.toLowerCase())
             
