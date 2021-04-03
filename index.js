@@ -66,7 +66,7 @@ function Movie(msg)
 function SubmitActorDirector(idmovie)
 {
     var actor_director=document.getElementById("answeractor").value
-    alert(actor_director)
+    
 
     apiActor= 'https://api.themoviedb.org/3/movie/'+idmovie+'/credits?api_key=77c9133483df2cf7a1eb322d38433453&language=en-US'
 fetch(apiActor)
@@ -194,7 +194,7 @@ function SubmitMovie(idactor)
     var movie=document.getElementById("answermovie").value
     
     
-    alert(movie)
+   
     moviecrediturl='https://api.themoviedb.org/3/person/'+idactor+'/movie_credits?api_key=77c9133483df2cf7a1eb322d38433453&language=en-US'
     fetch(moviecrediturl)
     .then(function(msg){
