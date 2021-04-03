@@ -2,7 +2,7 @@
 //id for my first movie fast five
 var idMovieInit='51497';
 //list for the movie already used with fast five on it because it's the first one
-var listmovie=['fast five'];
+var listmoviesubmitted=['fast five'];
 
 //First Part 1/2/3/4 the movie part 
 function GetMovieInfo(id){
@@ -131,7 +131,7 @@ fetch(apiActor)
         }   
     
 })
-
+// Actor Part 6 7 8 9 
 // Get the data of the actor or the director (image+name)
 //Get info Actor
 function GetActorDirectorInfo(id){
@@ -189,6 +189,8 @@ function ActorDirector(msg)
     button.onclick=function(){SubmitMovie(msg.id)}
     
 }
+
+//Submit button that will verify if the movie exist and will call the creation of the next div
 function SubmitMovie(idactor)
 {
     var movie=document.getElementById("answermovie").value
@@ -201,7 +203,8 @@ function SubmitMovie(idactor)
         return msg.json();
     })
     .then((msg)=>{
-    if (listmovie.includes(movie.toLowerCase()))
+    // look if the movie is already on our list of movie submitted
+    if (listmoviesubmitted.includes(movie.toLowerCase()))
         {
             var input=document.getElementById('answermovie')
             input.value=''
@@ -213,7 +216,7 @@ function SubmitMovie(idactor)
         console.log(msg.cast[i].title.toLowerCase())
         if (msg.cast[i].title.toLowerCase()==movie.toLowerCase() )
         {
-            listmovie.push(movie.toLowerCase())
+            listmoviesubmitted.push(movie.toLowerCase())
             
             
             
